@@ -37,6 +37,31 @@ out_pin:left output
 out_pin:right output
 
 @sample
-spl0=spl0
+spl0=0
 ```
+
+
+## Record everything through the plugin to a file
+
+See [this forum thread](https://forums.cockos.com/showthread.php?t=212561) and the [documentation](https://www.reaper.fm/sdk/js/file.php).
+
+```
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+recording = file_open("/tmp/file.data")
+
+@sample
+quant = floor(spl0 * 16)
+file_string(handle, str) 
+```
+
+# Quick reference
+
+An overview on jsfx
+
+[Sections](https://www.reaper.fm/sdk/js/js.php) @init, @sample, @gfx
 
